@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Payment Page</title>
+  <style>
+    body { font-family: sans-serif; padding: 40px; }
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>Mock Payment Page</h2>
+  <p>Amount: $0.99</p>
+  <p>Description: Test Payment</p>
+
+  <button onclick="redirectToApp()">Complete Payment</button>
+
+  <script>
+    function redirectToApp() {
+      const params = new URLSearchParams(window.location.search);
+      const returnUrl = params.get('returnUrl') || 'vizor-games://return-from-web';
+      window.location.href = returnUrl;
+    }
+  </script>
+</body>
+</html>
